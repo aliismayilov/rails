@@ -290,6 +290,7 @@ module Rails
             active_record.marshalling_format_version = 7.1
             active_record.run_after_transaction_callbacks_in_order_defined = true
             active_record.generate_secure_token_on = :initialize
+            active_record.disable_prepared_statements_when_query_log_tags_enabled = true
           end
 
           if respond_to?(:action_dispatch)
@@ -370,6 +371,10 @@ module Rails
           end
         when "8.2"
           load_defaults "8.1"
+
+          if respond_to?(:active_record)
+            active_record.disable_prepared_statements_when_query_log_tags_enabled = false
+          end
         else
           raise "Unknown version #{target_version.to_s.inspect}"
         end

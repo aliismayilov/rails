@@ -60,6 +60,8 @@ Below are the default values associated with each target version. In cases of co
 
 #### Default Values for Target Version 8.2
 
+- [`config.active_record.disable_prepared_statements_when_query_log_tags_enabled`](#config-active-record-disable-prepared-statements-when-query-log-tags-enabled): `false`
+
 #### Default Values for Target Version 8.1
 
 - [`config.action_controller.action_on_path_relative_redirect`](#config-action-controller-action-on-path-relative-redirect): `:raise`
@@ -91,6 +93,7 @@ Below are the default values associated with each target version. In cases of co
 - [`config.active_record.before_committed_on_all_records`](#config-active-record-before-committed-on-all-records): `true`
 - [`config.active_record.belongs_to_required_validates_foreign_key`](#config-active-record-belongs-to-required-validates-foreign-key): `false`
 - [`config.active_record.default_column_serializer`](#config-active-record-default-column-serializer): `nil`
+- [`config.active_record.disable_prepared_statements_when_query_log_tags_enabled`](#config-active-record-disable-prepared-statements-when-query-log-tags-enabled): `true`
 - [`config.active_record.encryption.hash_digest_class`](#config-active-record-encryption-hash-digest-class): `OpenSSL::Digest::SHA256`
 - [`config.active_record.encryption.support_sha1_for_non_deterministic_encryption`](#config-active-record-encryption-support-sha1-for-non-deterministic-encryption): `false`
 - [`config.active_record.generate_secure_token_on`](#config-active-record-generate-secure-token-on): `:initialize`
@@ -1484,7 +1487,14 @@ The default value depends on the `config.load_defaults` target version:
 Specifies whether or not to enable adapter-level query comments. Defaults to
 `false`, but is set to `true` in the default generated `config/environments/development.rb` file.
 
-NOTE: When this is set to `true` database prepared statements will be automatically disabled.
+#### `config.active_record.disable_prepared_statements_when_query_log_tags_enabled`
+
+Disables prepared statements when query tags are enabled.
+
+| Starting with version | The default value is |
+| --------------------- | -------------------- |
+| (original)            | `true`               |
+| 8.2                   | `false`              |
 
 #### `config.active_record.query_log_tags`
 

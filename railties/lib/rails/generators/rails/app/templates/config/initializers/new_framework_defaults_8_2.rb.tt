@@ -8,3 +8,10 @@
 #
 # Read the Guide for Upgrading Ruby on Rails for more info on each option.
 # https://guides.rubyonrails.org/upgrading_ruby_on_rails.html
+
+###
+# Specifies if prepared statements should be disabled if query log tags are enabled.
+# When false, `active_record.query_log_tags_enabled` and `ActiveRecord.disable_prepared_statements`
+# are independently configured.
+#++
+# Rails.application.config.active_record.disable_prepared_statements_when_query_log_tags_enabled = false
